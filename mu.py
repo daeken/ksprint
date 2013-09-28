@@ -231,11 +231,11 @@ def load(fn):
 		verts = verts[0]
 		for i, t in enumerate(transforms):
 			print i, t
-		step = 1
-		for pos, rot, size in transforms[::step]:
+		for i, (pos, rot, size) in enumerate(transforms):
 			verts = scale(verts, size[0], size[1], size[2])
-			verts = translate(verts, pos[0], pos[1], pos[2])
 			verts = qrotate(verts, *rot)
+			if i == 0:
+				verts = translate(verts, pos[0], pos[1], pos[2])
 		off = len(av)
 		av += verts
 		ai += [ind+off for ind in inds[0]]

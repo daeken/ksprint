@@ -9,8 +9,8 @@ def main(fn):
 
 	for pos, rot, (_v, _i, _n) in parts:
 		off = len(verts)
-		_v = translate(_v, pos[0], pos[1], pos[2])
 		_v = qrotate(_v, *rot)
+		_v = translate(_v, pos[0], pos[1], pos[2])
 		verts += _v
 		inds += [tuple(j + off for j in i) for i in _i]
 		normals += _n

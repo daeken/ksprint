@@ -20,7 +20,7 @@ class PartLoader(object):
 		self.reloaded = True
 		self.parts = {}
 
-		dirs = os.walk('gamedata')
+		dirs = os.walk('/Users/daeken/KSP_osx 2/GameData')
 		for path, dirs, fns in dirs:
 			if 'part.cfg' in fns:
 				self.addPart(path)
